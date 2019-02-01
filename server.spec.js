@@ -74,4 +74,15 @@ describe("SERVER: server.js", () => {
       expect(game.status).toBe(404);
     });
   });
+  describe("DELETE to /games/:id", () => {
+    it("should return the number of deleted entries", async () => {
+      const game = await request(server).delete("/games/1");
+
+      expect(game.text).toBeTruthy();
+    });
+    it("should return a status code of 404 if the passed id doesn't exist in db", async () => {
+      const game = await request(server).delete("/games/5");
+      expect(game.status).toBe(404);
+    });
+  });
 });
