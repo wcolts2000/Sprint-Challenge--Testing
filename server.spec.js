@@ -8,4 +8,10 @@ describe("SERVER: server.js", () => {
       expect(res.status).toBe(200);
     });
   });
+  describe("GET to /games endpoint", () => {
+    it("should respond with status code 200 OK", async () => {
+      let res = await request(server).get("/games");
+      expect(res.status).toBe(200);
+    });
+  });
 });
