@@ -43,7 +43,7 @@ describe("SERVER: server.js", () => {
     it("should respond with a status code of 422 if the information sent is incomplete", async () => {
       const res = await request(server)
         .post("/games")
-        .send({ title: "pacman", genre: "" });
+        .send({ title: "Pacman", genre: "" });
       expect(res.status).toBe(422);
     });
   });
