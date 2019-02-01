@@ -8,11 +8,12 @@ let counter = 0;
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.sendStatus(200);
+  res.send({ api: "running" });
 });
 
 server.get("/games", (req, res) => {
-  res.status(200).json(games);
+  // res.status(200).json(games);
+  res.json(games);
 });
 
 server.post("/games", (req, res) => {
