@@ -64,4 +64,14 @@ describe("SERVER: server.js", () => {
       expect(res.status).toBe(405);
     });
   });
+  describe("GET to /games/:id", () => {
+    it("should return the specified game if found", async () => {
+      const game = await request(server).get("/games/1");
+      expect(game.status).toBe(200);
+    });
+    it("should return a status code of 404 if the passed id doesnt exist in db", async () => {
+      const game = await request(server).get("/games/5");
+      expect(game.status).toBe(404);
+    });
+  });
 });

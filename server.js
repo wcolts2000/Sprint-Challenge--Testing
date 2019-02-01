@@ -16,6 +16,13 @@ server.get("/games", (req, res) => {
   res.json(games);
 });
 
+server.get("/games/:id", (req, res) => {
+  const { id } = req.params;
+  const foundGame = games.find(game => game.id === Number(id));
+  if (!foundGame) return res.status(404).json({ message: "Game not found" });
+  res.json(foundGame);
+});
+
 server.post("/games", (req, res) => {
   const { title, genre } = req.body;
 
