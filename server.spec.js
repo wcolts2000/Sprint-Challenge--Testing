@@ -24,4 +24,20 @@ describe("SERVER: server.js", () => {
       expect(res.text).toEqual("[]");
     });
   });
+  describe("POST to /games endpoint", () => {
+    it("should insert the user provided game into the games db", async () => {
+      const game = await request(server)
+        .post("/games")
+        .send({
+          title: "Pacman",
+          genre: "arcade",
+          releaseYear: 1980
+        });
+
+      const games = await request(server).get("/games");
+      let obj = JSON.parse(games.text);
+      expect(obj).toHaveLength(1);
+      expect(game.status).toBe(201);
+    });
+  });
 });
