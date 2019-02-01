@@ -17,6 +17,10 @@ server.get("/games", (req, res) => {
 
 server.post("/games", (req, res) => {
   const { title, genre } = req.body;
+  if (!title || !genre)
+    res
+      .status(422)
+      .json({ message: "must provide both title and genre to post a game" });
   const gameToAdd = {
     id: counter++,
     title,

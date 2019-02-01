@@ -21,7 +21,7 @@ describe("SERVER: server.js", () => {
     it("should send back an empty array if nothing is in the db", async () => {
       let res = await request(server).get("/games");
 
-      expect(res.text).toEqual("[]");
+      expect(JSON.parse(res.text)).toEqual([]);
     });
   });
   describe("POST to /games endpoint", () => {
@@ -36,8 +36,15 @@ describe("SERVER: server.js", () => {
 
       const games = await request(server).get("/games");
       let obj = JSON.parse(games.text);
+
       expect(obj).toHaveLength(1);
       expect(game.status).toBe(201);
+    });
+    it("should respond with a status code of 422 if the information sent is incomplete", async () => {
+      const res = await request(server)
+        .post("/games")
+        .send({ title: "pacman", genre: "" });
+      expect(res.status).toBe(422);
     });
   });
 });
