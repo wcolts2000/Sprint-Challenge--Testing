@@ -43,7 +43,7 @@ describe("SERVER: server.js", () => {
     it("should respond with a status code of 422 if the information sent is incomplete", async () => {
       const res = await request(server)
         .post("/games")
-        .send({ title: "pacman", genre: "" });
+        .send({ title: "pacman collectors", genre: "" });
       expect(res.status).toBe(422);
     });
     it("should send back an object matching the sent information with an id appended to it", async () => {
@@ -57,7 +57,7 @@ describe("SERVER: server.js", () => {
         genre: "arcade"
       });
     });
-    it("should send back status code of 405 if they try in input a game that already exists in the db", async () => {
+    it("should send back status code of 405 if they try in input a game title {case insensitive} that already exists in the db", async () => {
       const res = await request(server)
         .post("/games")
         .send({ title: "Pacman", genre: "arcade" });

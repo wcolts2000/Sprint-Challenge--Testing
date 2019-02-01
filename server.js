@@ -12,7 +12,6 @@ server.get("/", (req, res) => {
 });
 
 server.get("/games", (req, res) => {
-  // res.status(200).json(games);
   res.json(games);
 });
 
@@ -26,7 +25,7 @@ server.get("/games/:id", (req, res) => {
 server.post("/games", (req, res) => {
   const { title, genre } = req.body;
 
-  if (games.some(game => game.title === title))
+  if (games.some(game => game.title.toLowerCase() === title.toLowerCase()))
     return res.status(405).json({ message: "game already exists in db" });
 
   if (!title || !genre)
