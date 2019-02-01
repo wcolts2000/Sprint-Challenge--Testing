@@ -18,6 +18,10 @@ server.get("/games", (req, res) => {
 
 server.post("/games", (req, res) => {
   const { title, genre } = req.body;
+
+  if (games.some(game => game.title === title))
+    return res.status(405).json({ message: "game already exists in db" });
+
   if (!title || !genre)
     res.status(422).json({
       message:

@@ -43,19 +43,25 @@ describe("SERVER: server.js", () => {
     it("should respond with a status code of 422 if the information sent is incomplete", async () => {
       const res = await request(server)
         .post("/games")
-        .send({ title: "Pacman", genre: "" });
+        .send({ title: "pacman", genre: "" });
       expect(res.status).toBe(422);
     });
     it("should send back an object matching the sent information with an id appended to it", async () => {
       const res = await request(server)
         .post("/games")
-        .send({ title: "Pacman", genre: "arcade" });
+        .send({ title: "ms pacman", genre: "arcade" });
       expect(res.status).toBe(201);
       expect(JSON.parse(res.text)).toEqual({
         id: 2,
-        title: "Pacman",
+        title: "ms pacman",
         genre: "arcade"
       });
+    });
+    it("should send back status code of 405 if they try in input a game that already exists in the db", async () => {
+      const res = await request(server)
+        .post("/games")
+        .send({ title: "Pacman", genre: "arcade" });
+      expect(res.status).toBe(405);
     });
   });
 });

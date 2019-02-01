@@ -80,8 +80,8 @@ Below is a product specification covering the requirements for your endpoints.
 
 The following exercises are optional, but we suggest that you tackle them if you finish the MVP early.
 
-- validate that the game `title` is unique. If the client tries to create a duplicate game, return a status code 405 (Not Allowed). Write a test that checks for this.
-- add an `id` property to the game schema and write code in the server to increment it automatically. After implementing this functionality work on the following:
+- [ x ] validate that the game `title` is unique. If the client tries to create a duplicate game, return a status code 405 (Not Allowed). Write a test that checks for this.
+- [ x ] add an `id` property to the game schema and write code in the server to increment it automatically. After implementing this functionality work on the following:
   - Write a `GET /games/:id` endpoint that returns the information about a single game. Respond with a 404 status code when a game is not found for the provided `id`. Add the corresponding tests for it.
   - add a `DELETE /games/:id` endpoint that can remove the corresponding game. If the game does not exists return a 404 status code. Write tests for this endpoint.
 
