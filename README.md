@@ -1,5 +1,7 @@
 # Sprint Challenge: Testing - TDD Video Games
 
+[commits](#commits)
+
 This challenge allows you to practice the concepts and techniques learned over the past week and apply them in a concrete project. This Sprint explored Testing. During this Sprint, you studied Introduction to Automated Testing, Testing React Applications & Testing Web APIs. In your challenge this week, you will demonstrate proficiency by creating an application that follows the TDD pattern to create a simple Web API using Node.js and Express.
 
 ## Instructions
@@ -12,7 +14,7 @@ You are not allowed to collaborate during the Sprint Challenge. However, you are
 
 You have three hours to complete this challenge. Plan your time accordingly.
 
-## Commits
+## Commits <a name="commits"></a>
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons and your project manager.
 
@@ -30,7 +32,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. What is the point of `Test Driven Development`? What do you think about this approach?
 
-   -TDD always the developer to have more confidence in the logic of their application by giving immediate feedback of the code being as bug free as possible because you first write a failing test, then write the code to make it pass, then refactor and repeat, catching as many edge cases as are foreseeable as you go, and having the tests fail along the way if something else in the code base changes unexpectedly (regressions).
+   -TDD allows the developer to have more confidence in the logic of their application by giving immediate feedback of the code being as bug free as possible because you first write a failing test, then write the code to make it pass, then refactor and repeat, catching as many edge cases as are foreseeable as you go, and having the tests fail along the way if something else in the code base changes unexpectedly (regressions).
 
 1. Mention three types of automated tests.
 

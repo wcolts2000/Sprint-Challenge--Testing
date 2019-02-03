@@ -40,17 +40,17 @@ server.post("/games", (req, res) => {
   };
 
   games.push(gameToAdd);
-  res.status(201).json(gameToAdd);
+  res.status(201).send(gameToAdd);
 });
 
 server.delete("/games/:id", (req, res) => {
   const { id } = req.params;
   const foundGame = games.find(game => game.id === Number(id));
-  console.log("GAMES", games);
+  // console.log("GAMES", games);
 
   if (!foundGame) return res.status(404).json({ message: "Game not found" });
   let deletedGame = games.pop(foundGame);
-  console.log("GAMES", games);
+  // console.log("GAMES", games);
   res.json(deletedGame);
 });
 

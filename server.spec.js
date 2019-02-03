@@ -1,5 +1,6 @@
 const request = require("supertest");
 const server = require("./server");
+// server.use(express.json());
 
 describe("SERVER: server.js", () => {
   describe("GET to / endpoint", () => {
@@ -51,7 +52,7 @@ describe("SERVER: server.js", () => {
         .post("/games")
         .send({ title: "ms pacman", genre: "arcade" });
       expect(res.status).toBe(201);
-      expect(JSON.parse(res.text)).toEqual({
+      expect(res.body).toEqual({
         id: 2,
         title: "ms pacman",
         genre: "arcade"
